@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Техенергооблік — лічильники води й тепла, котли, опалення в Києві</title>
+<meta name="description" content="Заміна, встановлення та повірка лічильників води й тепла з постановкою на облік. Монтаж котлів, бойлерів, опалення, теплої підлоги та сантехніки в Києві й області.">
+<meta name="theme-color" content="#02978b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-water" viewBox="0 0 24 24"><path d="M2 13h3M19 13h3"/><circle cx="12" cy="13" r="7"/><path d="M12 9.3c1.6 2.1 2.3 3.2 2.3 4.1a2.3 2.3 0 0 1-4.6 0c0-.9.7-2 2.3-4.1z"/><path d="M10 3.5h4M12 3.5V6"/></symbol>
+    <symbol id="i-verify" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><path d="M8.5 14.5l2.4 2.4 4.6-5"/><path d="M12 4v1.6M5.6 6.6l1.1 1.1M18.4 6.6l-1.1 1.1"/><path d="M3 20.5h18"/></symbol>
+    <symbol id="i-heat" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M6.5 9.5h6M6.5 13h4"/><path d="M16.5 16c-1.3 0-2.2-1-2.2-2.2 0-1.5 2.2-3.3 2.2-3.3s2.2 1.8 2.2 3.3c0 1.2-.9 2.2-2.2 2.2z"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V6.5L12 3l8 3.5V21"/><path d="M9.5 21v-4.5h5V21"/><path d="M8 9h2M14 9h2M8 12.5h2M14 12.5h2"/><path d="M2.5 21h19"/></symbol>
+    <symbol id="i-kotel" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="15" rx="2.5"/><path d="M8.5 21.5v-4M15.5 21.5v-4M12 21.5v-4"/><path d="M12 13.5c-1.3 0-2.3-1-2.3-2.3 0-1.7 2.3-3.5 2.3-3.5s2.3 1.8 2.3 3.5c0 1.3-1 2.3-2.3 2.3z"/></symbol>
+    <symbol id="i-boiler" viewBox="0 0 24 24"><path d="M7 7a5 5 0 0 1 10 0v9a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3z"/><path d="M9.5 22v-3M14.5 22v-3"/><circle cx="12" cy="9" r="1.4"/><path d="M9.5 14h5"/></symbol>
+    <symbol id="i-radiator" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="12.5" rx="2"/><path d="M7.5 5.5V18M12 5.5V18M16.5 5.5V18"/><path d="M5 21v-3M19 21v-3"/><path d="M1.5 9h1.5M21 9h1.5"/></symbol>
+    <symbol id="i-pipe" viewBox="0 0 24 24"><path d="M2.5 5.5H11a5 5 0 0 1 5 5v11"/><path d="M2.5 10.5H10a1 1 0 0 1 1 1v10"/><path d="M2.5 3.5v9M9.5 21.5H18"/></symbol>
+    <symbol id="i-tap" viewBox="0 0 24 24"><path d="M3 10.5h9.5a3.5 3.5 0 0 1 3.5 3.5v1"/><path d="M3 7.5v6"/><path d="M8.5 10.5V7M6 6.5h5"/><path d="M16 18.3c.8 1 1.3 1.7 1.3 2.2a1.3 1.3 0 0 1-2.6 0c0-.5.5-1.2 1.3-2.2z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 7.2 7.2l1.4-2.1 4.2 1.6V19a1.8 1.8 0 0 1-1.9 1.8C10.4 20.3 3.7 13.6 3.2 5.4A1.8 1.8 0 0 1 5 3.5z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M21.2 3.6 2.9 10.7c-1 .4-1 1.1-.1 1.4l4.6 1.4 1.8 5.5c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.7-.8l3-14.1c.3-1.3-.5-1.8-1.3-1.2zM8.9 13.1l8.9-5.6c.4-.3.8-.1.5.2l-7.3 6.6-.3 3.1-1.8-4.3z"/></symbol>
+    <symbol id="i-viber" viewBox="0 0 24 24"><path d="M12 2.8c5.1 0 8.6 2.2 8.6 7.4 0 5.2-3.5 7.4-8.6 7.4-.7 0-1.4 0-2.1-.1L6.2 20.8v-4C4.1 15.6 3.4 13.2 3.4 10.2 3.4 5 6.9 2.8 12 2.8z"/><path d="M9.4 7.4c.3-.3.8-.3 1 .1l.7 1.2c.2.3.1.7-.2.9l-.4.3c.4 1 1.2 1.8 2.2 2.2l.3-.4c.2-.3.6-.4.9-.2l1.2.7c.4.2.4.7.1 1-.6.7-1.5.9-2.3.5-1.7-.8-3-2.1-3.8-3.8-.4-.8-.2-1.7.3-2.5z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.5 4.5L19.5 6.5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8 4.5 5.6v6.1c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V5.6z"/><path d="M8.7 12l2.3 2.3 4.4-4.6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.8h8l4.5 4.5v13.9H6z"/><path d="M14 2.8v4.5h4.5"/><path d="M9 12h6M9 15.5h6M9 8.5h2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><path d="M12 7v5.2l3.3 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-6.8-6.1-6.8-11.6a6.8 6.8 0 0 1 13.6 0c0 5.5-6.8 11.6-6.8 11.6z"/><circle cx="12" cy="9.9" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><path d="M18.5 5.5l-13 13"/><circle cx="7" cy="7" r="2.3"/><circle cx="17" cy="17" r="2.3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12.5" height="12.5" rx="2"/><path d="M16 8V5.5A2 2 0 0 0 14 3.5H5.5a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2H8"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="container header-row">
+    <a class="brand" href="#top" aria-label="Техенергооблік — на головну">
+      <img src="img/logo.png" alt="Техенергооблік" width="520" height="253">
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Головне меню">
+      <a href="#services">Послуги</a>
+      <a href="#calc">Ціни</a>
+      <a href="#process">Як працюємо</a>
+      <a href="#works">Роботи</a>
+      <a href="#faq">Питання</a>
+      <a href="#contacts">Контакти</a>
+      <div class="nav-mobile-extra">
+        <a class="btn btn-primary btn-block" href="tel:+380990411444"><svg class="ic"><use href="#i-phone"/></svg>099 041 14 44</a>
+        <div class="nav-msgs">
+          <a class="btn btn-tg" href="https://t.me/energo_climat" target="_blank" rel="noopener"><svg class="ic"><use href="#i-tg"/></svg>Telegram</a>
+          <a class="btn btn-viber" href="viber://chat?number=%2B380962433748"><svg class="ic"><use href="#i-viber"/></svg>Viber</a>
+        </div>
+        <div class="nav-lang"><span class="is-active">UA</span><a href="https://energo-climat.com/" rel="noopener">RU</a></div>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" aria-label="Мова"><span class="is-active">UA</span><a href="https://energo-climat.com/" rel="noopener">RU</a></div>
+      <a class="header-phone" href="tel:+380990411444">
+        <span class="header-phone-num">099 041 14 44</span>
+        <span class="header-phone-note">Майстри: Пн–Сб 8:00–18:00</span>
+      </a>
+      <a class="btn btn-primary btn-sm header-cta" href="#calc">Розрахувати</a>
+      <a class="icon-btn only-mobile" href="tel:+380990411444" aria-label="Подзвонити"><svg class="ic"><use href="#i-phone"/></svg></a>
+      <button class="icon-btn menu-btn only-mobile" id="menuBtn" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mainNav"><svg class="ic ic-open"><use href="#i-menu"/></svg><svg class="ic ic-close"><use href="#i-close"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span>Київ і область · працюємо з 2011 року</p>
+      <h1>Лічильники води й&nbsp;тепла — <span class="hl">з&nbsp;постановкою на&nbsp;облік</span>, під&nbsp;ключ</h1>
+      <p class="hero-sub">Замінимо, встановимо чи повіримо лічильник, видамо всі документи й самі подамо заявку на опломбування. А ще — котли, бойлери, опалення та сантехніка за відкритим прайсом.</p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="tel:+380990411444">
+          <svg class="ic"><use href="#i-phone"/></svg>
+          <span class="btn-stack"><span class="btn-main">099 041 14 44</span><span class="btn-sub">Подзвонити майстру</span></span>
+        </a>
+        <div class="hero-msgs">
+          <a class="btn btn-tg" href="https://t.me/energo_climat" target="_blank" rel="noopener"><svg class="ic"><use href="#i-tg"/></svg>Telegram</a>
+          <a class="btn btn-viber" href="viber://chat?number=%2B380962433748"><svg class="ic"><use href="#i-viber"/></svg>Viber</a>
+        </div>
+      </div>
+      <a class="hero-calc-link" href="#calc">Порахувати вартість за 30 секунд <svg class="ic"><use href="#i-arrow"/></svg></a>
+
+      <ul class="hero-proof">
+        <li><svg class="ic"><use href="#i-clock"/></svg><span><b>Повірка без зняття</b> 20–30 хвилин</span></li>
+        <li><svg class="ic"><use href="#i-shield"/></svg><span><b>Гарантія на роботи</b> 12–24 місяці</span></li>
+        <li><svg class="ic"><use href="#i-doc"/></svg><span><b>Договір і акт</b> на кожну роботу</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <figure class="hero-photo">
+        <img src="img/water-alma-atynska.jpg" alt="Встановлені лічильники холодної та гарячої води у ванній кімнаті" width="900" height="1032" fetchpriority="high">
+        <figcaption><svg class="ic"><use href="#i-pin"/></svg>Наш об'єкт · вул. Алма-Атинська</figcaption>
+      </figure>
+
+      <div class="meter-card" aria-live="polite">
+        <div class="meter-top">
+          <span class="meter-label">Ціна з прайсу</span>
+          <span class="meter-led" aria-hidden="true"></span>
+        </div>
+        <div class="meter-display" aria-hidden="true">
+          <div class="odo" id="odo"></div>
+          <span class="odo-unit">грн</span>
+        </div>
+        <p class="meter-caption" id="odoCaption">Повірка 1 лічильника води без зняття</p>
+        <div class="meter-dots" id="odoDots" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-badge">
+        <svg class="ic"><use href="#i-check"/></svg>
+        <span><b>Заявку на опломбування</b> подаємо за вас — безкоштовно</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Послуги</p>
+      <h2>Що потрібно зробити?</h2>
+      <p class="section-lead">Дев'ять напрямків і ціни «від» з нашого прайсу. Оберіть свою задачу — відкрийте деталі або одразу порахуйте вартість.</p>
+    </div>
+
+    <div class="chips" role="group" aria-label="Фільтр послуг">
+      <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">Усі <span>9</span></button>
+      <button class="chip" type="button" data-filter="meters" aria-pressed="false">Лічильники <span>4</span></button>
+      <button class="chip" type="button" data-filter="heat" aria-pressed="false">Котли, бойлери, опалення <span>3</span></button>
+      <button class="chip" type="button" data-filter="plumbing" aria-pressed="false">Вода й сантехніка <span>2</span></button>
+    </div>
+
+    <div class="svc-grid" id="svcGrid">
+      <article class="svc" data-cat="meters">
+        <div class="svc-ic cold"><svg class="ic"><use href="#i-water"/></svg></div>
+        <div class="svc-body">
+          <h3>Заміна й встановлення лічильників води</h3>
+          <p>З постановкою на облік: акти, паспорти, пломбування — усе оформлюємо ми.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 700 <small>грн</small></span>
+          <div class="svc-links">
+            <button class="svc-calc" type="button" data-calc="replace">Порахувати</button>
+            <a class="svc-more" href="https://energo-climat.com/uk/lichilniki-vodi/" target="_blank" rel="noopener" aria-label="Детальніше про лічильники води"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="meters">
+        <div class="svc-ic cold"><svg class="ic"><use href="#i-verify"/></svg></div>
+        <div class="svc-body">
+          <h3>Повірка лічильників води</h3>
+          <p>На місці, без зняття приладу, 20–30 хвилин. Свідоцтво вноситься до держреєстру.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 600 <small>грн</small></span>
+          <div class="svc-links">
+            <button class="svc-calc" type="button" data-calc="verify">Порахувати</button>
+            <a class="svc-more" href="https://energo-climat.com/uk/povirka-lichylnykiv-vody-u-kyevi-ta-oblasti/" target="_blank" rel="noopener" aria-label="Детальніше про повірку лічильників води"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="meters">
+        <span class="svc-tag">Хіт встановлень — Gross</span>
+        <div class="svc-ic hot"><svg class="ic"><use href="#i-heat"/></svg></div>
+        <div class="svc-body">
+          <h3>Лічильник тепла під ключ</h3>
+          <p>Прилад, проєкт за 1 добу, монтаж і погодження в «Київтеплоенерго».</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 6 500 <small>грн</small></span>
+          <div class="svc-links">
+            <button class="svc-calc" type="button" data-calc="heat">Порахувати</button>
+            <a class="svc-more" href="https://energo-climat.com/uk/lichilniki-tepla/" target="_blank" rel="noopener" aria-label="Детальніше про лічильники тепла"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="meters">
+        <div class="svc-ic hot"><svg class="ic"><use href="#i-building"/></svg></div>
+        <div class="svc-body">
+          <h3>Повірка теплолічильників та&nbsp;ІТП</h3>
+          <p>Квартирні DN15–20, будинкові для ОСББ і офісів, обслуговування теплопунктів.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 1 400 <small>грн</small></span>
+          <div class="svc-links">
+            <a class="svc-more" href="https://energo-climat.com/uk/povirka-lichilnikiv-tepla/" target="_blank" rel="noopener" aria-label="Детальніше про повірку теплолічильників"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="heat">
+        <div class="svc-ic hot"><svg class="ic"><use href="#i-kotel"/></svg></div>
+        <div class="svc-body">
+          <h3>Монтаж котлів</h3>
+          <p>Газові, електричні, твердопаливні. Обв'язка, димохід, пусконалагодження.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 7 000 <small>грн</small></span>
+          <div class="svc-links">
+            <a class="svc-more" href="https://energo-climat.com/uk/montazh-kotliv/" target="_blank" rel="noopener" aria-label="Детальніше про монтаж котлів"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="heat">
+        <div class="svc-ic hot"><svg class="ic"><use href="#i-boiler"/></svg></div>
+        <div class="svc-body">
+          <h3>Бойлери й водонагрівачі</h3>
+          <p>Накопичувальні та проточні, з підключенням до води й електрики.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 1 600 <small>грн</small></span>
+          <div class="svc-links">
+            <a class="svc-more" href="https://energo-climat.com/uk/vstanovlennya-bojlera/" target="_blank" rel="noopener" aria-label="Детальніше про встановлення бойлера"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="heat">
+        <div class="svc-ic hot"><svg class="ic"><use href="#i-radiator"/></svg></div>
+        <div class="svc-body">
+          <h3>Опалення й тепла підлога</h3>
+          <p>Радіатори, труби, гребінки, водяна й електрична тепла підлога.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 140 <small>грн/м²</small></span>
+          <div class="svc-links">
+            <a class="svc-more" href="https://energo-climat.com/uk/montazh-sistemi-opalennya/" target="_blank" rel="noopener" aria-label="Детальніше про системи опалення"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="plumbing">
+        <div class="svc-ic cold"><svg class="ic"><use href="#i-pipe"/></svg></div>
+        <div class="svc-body">
+          <h3>Водопровід, каналізація, стояки</h3>
+          <p>Заміна стояків і труб, нові точки підключення води й каналізації.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 1 000 <small>грн</small></span>
+          <div class="svc-links">
+            <a class="svc-more" href="https://energo-climat.com/uk/montazh-sistemi-vodopostachannya/" target="_blank" rel="noopener" aria-label="Детальніше про водопровід і каналізацію"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc" data-cat="plumbing">
+        <div class="svc-ic cold"><svg class="ic"><use href="#i-tap"/></svg></div>
+        <div class="svc-body">
+          <h3>Ванна й кухня</h3>
+          <p>Унітази, змішувачі, умивальники, душові, пральні й посудомийні машини.</p>
+        </div>
+        <div class="svc-foot">
+          <span class="price"><small>від</small> 450 <small>грн</small></span>
+          <div class="svc-links">
+            <a class="svc-more" href="https://energo-climat.com/uk/vanna-kimnata-ta-kuhnya/" target="_blank" rel="noopener" aria-label="Детальніше про сантехніку для ванної та кухні"><svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="svc-extra">
+      <span>Також:</span>
+      <a href="https://energo-climat.com/uk/sistemi-ochishhennya-vodi/" target="_blank" rel="noopener">монтаж фільтра для води — від 1 200 грн</a>
+      <a href="https://energo-climat.com/uk/prais/" target="_blank" rel="noopener">рушникосушки — від 800 грн</a>
+      <a class="svc-extra-all" href="https://energo-climat.com/uk/prais/" target="_blank" rel="noopener">Повний прайс <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="section calc-section" id="calc">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Калькулятор</p>
+      <h2>Скільки коштуватиме — порахуйте за&nbsp;30&nbsp;секунд</h2>
+      <p class="section-lead">Оберіть параметри — підставимо ціну з прайсу й одразу складемо текст заявки. Надіслати його можна одним дотиком.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-options">
+        <fieldset class="calc-step">
+          <legend><span class="step-n">1</span>Що потрібно?</legend>
+          <div class="opt-grid opt-grid-type" id="optType">
+            <label class="opt"><input type="radio" name="type" value="replace" checked><span class="opt-box"><svg class="ic"><use href="#i-water"/></svg><b>Заміна лічильників води</b><small>старі зламались або не пройшли повірку</small></span></label>
+            <label class="opt"><input type="radio" name="type" value="new"><span class="opt-box"><svg class="ic"><use href="#i-plus"/></svg><b>Нове встановлення</b><small>лічильників води ще немає</small></span></label>
+            <label class="opt"><input type="radio" name="type" value="verify"><span class="opt-box"><svg class="ic"><use href="#i-verify"/></svg><b>Повірка лічильників води</b><small>без зняття, на місці</small></span></label>
+            <label class="opt"><input type="radio" name="type" value="heat"><span class="opt-box"><svg class="ic"><use href="#i-heat"/></svg><b>Лічильник тепла</b><small>квартира з горизонтальним розведенням</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-step" id="stepQty">
+          <legend><span class="step-n">2</span>Скільки лічильників?</legend>
+          <div class="seg" id="optQty">
+            <label><input type="radio" name="qty" value="1" checked><span>1 шт.</span></label>
+            <label><input type="radio" name="qty" value="2"><span>2 шт.</span></label>
+            <label class="qty-4"><input type="radio" name="qty" value="4"><span>4 шт.</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-step" id="stepOwner">
+          <legend><span class="step-n">3</span>Лічильники вже купили?</legend>
+          <div class="seg" id="optOwner">
+            <label><input type="radio" name="owner" value="own" checked><span>Так, є свої</span></label>
+            <label><input type="radio" name="owner" value="ours"><span>Ні — підберіть і привезіть</span></label>
+          </div>
+          <div class="seg seg-brands" id="optBrand" hidden>
+            <label><input type="radio" name="brand" value="gross" checked><span>Metron / Gross <em>Україна</em></span></label>
+            <label><input type="radio" name="brand" value="picoflux"><span>Picoflux <em>Польща</em></span></label>
+            <label><input type="radio" name="brand" value="zenner"><span>Zenner <em>Німеччина</em></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-step" id="stepHeat" hidden>
+          <legend><span class="step-n">2</span>Модель лічильника тепла</legend>
+          <div class="model-list" id="optModel">
+            <label class="model"><input type="radio" name="model" value="gross" checked><span><b>Gross DN15/20</b><small>механічний · Україна · хіт встановлень</small></span><i>6 500</i></label>
+            <label class="model"><input type="radio" name="model" value="grossm"><span><b>Gross DN15/20 з M-Bus</b><small>механічний · дистанційне зчитування · Україна</small></span><i>6 900</i></label>
+            <label class="model"><input type="radio" name="model" value="uhm"><span><b>Metron UHM DN15 з M-Bus</b><small>ультразвуковий · Україна</small></span><i>7 400</i></label>
+            <label class="model"><input type="radio" name="model" value="apator"><span><b>Apator DN15/20</b><small>механічний · Польща</small></span><i>9 350</i></label>
+            <label class="model"><input type="radio" name="model" value="t230"><span><b>Ultraheat T-230</b><small>ультразвуковий · Німеччина</small></span><i>9 600</i></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <aside class="calc-result" aria-live="polite">
+        <div class="res-card">
+          <p class="res-label">Орієнтовна вартість</p>
+          <p class="res-price"><span id="resPrice">700</span> <small>грн</small></p>
+          <p class="res-title" id="resTitle">Заміна 1 лічильника води</p>
+          <ul class="res-list" id="resList"></ul>
+          <p class="res-note" id="resNote"></p>
+        </div>
+
+      </aside>
+
+      <form class="req-form" id="reqForm" novalidate>
+        <div class="req-col">
+        <p class="req-title">Надіслати заявку</p>
+        <p class="req-sub">Майстер передзвонить і узгодить час огляду. Або надішліть той самий текст у месенджер.</p>
+        <div class="field-row">
+          <label class="field"><span>Ім'я</span><input type="text" name="name" autocomplete="name" placeholder="Як до вас звертатись"></label>
+          <label class="field"><span>Телефон</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+38 0__ ___ __ __"></label>
+        </div>
+        <label class="field"><span>Район або адреса <em>(необов'язково)</em></span><input type="text" name="addr" placeholder="Наприклад, Солом'янський район"></label>
+        </div>
+        <div class="req-col">
+        <label class="field"><span>Текст заявки</span><textarea name="msg" id="reqMsg" rows="4"></textarea></label>
+        <div class="req-actions">
+          <button class="btn btn-primary btn-block" type="submit">Залишити заявку</button>
+          <div class="req-msgs">
+            <button class="btn btn-tg" type="button" data-send="tg"><svg class="ic"><use href="#i-tg"/></svg>Telegram</button>
+            <button class="btn btn-viber" type="button" data-send="viber"><svg class="ic"><use href="#i-viber"/></svg>Viber</button>
+          </div>
+        </div>
+        <p class="req-hint">Для Telegram і Viber текст заявки копіюється — вставте його в чат.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Як ми працюємо</p>
+      <h2>Від дзвінка до лічильника на обліку — 4 кроки</h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num">01</span>
+        <h3>Заявка</h3>
+        <p>Телефоном, у Telegram, Viber або на сайті. Надішліть фото місця монтажу — лічильник води часто можемо поставити в той самий день.</p>
+      </li>
+      <li class="step">
+        <span class="step-num">02</span>
+        <h3>Огляд і кошторис</h3>
+        <p>Майстер приїде в узгоджений час (Пн–Сб, 8:00–18:00). Роботу починаємо лише після того, як ви погодите кошторис.</p>
+      </li>
+      <li class="step">
+        <span class="step-num">03</span>
+        <h3>Монтаж і документи</h3>
+        <p>Договір, акт виконаних робіт, паспорти приладів, акти розпломбування й опломбування — одразу на руки.</p>
+      </li>
+      <li class="step">
+        <span class="step-num">04</span>
+        <h3>Облік і гарантія</h3>
+        <p>Подаємо заявку на виклик інспектора в «Київводоканал» чи «Київтеплоенерго» від вашого імені — безкоштовно<sup>*</sup>. Гарантія 12–24 місяці.</p>
+      </li>
+    </ol>
+    <p class="footnote">* Крім приватних будинків і юридичних осіб.</p>
+  </div>
+</section>
+
+<!-- ============ WORKS ============ -->
+<section class="section works" id="works">
+  <div class="container">
+    <div class="section-head section-head-row">
+      <div>
+        <p class="kicker">Наші роботи</p>
+        <h2>Реальні об'єкти з адресами</h2>
+      </div>
+      <p class="section-lead">У нашому архіві 466 фотозвітів з адресами: лічильники тепла й води, бойлери, котли, стояки. Ось кілька з них.</p>
+    </div>
+  </div>
+  <div class="works-scroller">
+    <div class="works-track">
+      <figure class="work"><img src="img/heat-avtozavodska-1.jpg" alt="Встановлений лічильник тепла в технічній ніші" loading="lazy" width="720" height="797"><figcaption><b>Лічильник тепла</b><span>вул. Автозаводська, 29а</span></figcaption></figure>
+      <figure class="work"><img src="img/kotel-kashchenka.jpg" alt="Змонтований настінний котел" loading="lazy" width="720" height="774"><figcaption><b>Монтаж котла</b><span>вул. Академіка Кащенка, 34</span></figcaption></figure>
+      <figure class="work"><img src="img/water-avtozavodska.jpg" alt="Лічильник води після заміни" loading="lazy" width="720" height="758"><figcaption><b>Лічильник води</b><span>вул. Автозаводська, 27</span></figcaption></figure>
+      <figure class="work"><img src="img/heat-palladina.jpg" alt="Лічильник тепла на трубі опалення" loading="lazy" width="720" height="797"><figcaption><b>Лічильник тепла</b><span>просп. Академіка Палладіна, 20</span></figcaption></figure>
+      <figure class="work"><img src="img/boiler-palladina.jpg" alt="Встановлений бойлер у ванній кімнаті" loading="lazy" width="560" height="710"><figcaption><b>Бойлер</b><span>просп. Академіка Палладіна, 18/30</span></figcaption></figure>
+      <figure class="work"><img src="img/heat-avtozavodska-2.jpg" alt="Вузол обліку тепла в квартирі" loading="lazy" width="720" height="797"><figcaption><b>Вузол обліку тепла</b><span>вул. Автозаводська, 29а</span></figcaption></figure>
+      <figure class="work"><img src="img/wc-glushkova.jpg" alt="Встановлений унітаз" loading="lazy" width="560" height="635"><figcaption><b>Ванна кімната</b><span>просп. Академіка Глушкова, 30</span></figcaption></figure>
+      <a class="work work-more" href="https://energo-climat.com/uk/foto-nashih-robit/" target="_blank" rel="noopener">
+        <span class="work-more-num">466</span>
+        <span class="work-more-text">фотозвітів з адресами по Києву</span>
+        <span class="work-more-link">Дивитись усі <svg class="ic"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="section trust" id="trust">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker kicker-light">Гарантії та документи</p>
+      <h2>Працюємо офіційно — з&nbsp;договором, актами й&nbsp;ліцензією</h2>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b><small class="pre">з</small>2011</b><span>працюємо в Києві та області</span></div>
+      <div class="stat"><b>12–24 <small>міс</small></b><span>гарантія на роботи залежно від матеріалів</span></div>
+      <div class="stat"><b>1 <small>день</small></b><span>на аварійний гарантійний випадок, інші — до 10 днів</span></div>
+      <div class="stat"><b>20–30 <small>хв</small></b><span>триває повірка лічильника води без зняття</span></div>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <svg class="ic"><use href="#i-doc"/></svg>
+        <h3>Пакет документів для обліку</h3>
+        <p>Акти виконаних робіт, акти розпломбування й опломбування, паспорти лічильників, завірена копія ліцензії.</p>
+      </div>
+      <div class="trust-card">
+        <svg class="ic"><use href="#i-shield"/></svg>
+        <h3>Ліцензія на будівництво</h3>
+        <p>Об'єкти IV та V категорій складності. Виписка й ліцензія — у розділі <a href="https://energo-climat.com/uk/dokumenti/" target="_blank" rel="noopener">«Документи»</a>.</p>
+      </div>
+      <div class="trust-card">
+        <svg class="ic"><use href="#i-check"/></svg>
+        <h3>Кошторис до початку робіт</h3>
+        <p>Майстер називає суму після огляду, і роботу починаємо лише після вашого погодження. Без прихованих платежів.</p>
+      </div>
+      <div class="trust-card">
+        <svg class="ic"><use href="#i-percent"/></svg>
+        <h3>Знижки</h3>
+        <p>Пенсіонерам і учасникам бойових дій. Для людей з інвалідністю I–III груп — знижка 10% на всі види робіт.</p>
+      </div>
+    </div>
+
+    <div class="osbb">
+      <div class="osbb-copy">
+        <p class="kicker kicker-light">Для ОСББ, ЖЕКів і керуючих компаній</p>
+        <h3>Повірка на весь будинок — без відключення води</h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Повірка лічильників води на місці — <b>450&nbsp;грн/шт.</b> при замовленні понад 50&nbsp;шт.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Повірка будинкових теплолічильників DN32–150 — <b>від 3&nbsp;500&nbsp;грн</b></span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Обслуговування ІТП; приймаємо лічильники на повірку Новою поштою з усієї України</span></li>
+        </ul>
+      </div>
+      <a class="btn btn-light" href="https://energo-climat.com/uk/obslugovuvannya-zagalnobudinkovih-lichilnikiv-tepla/" target="_blank" rel="noopener">Умови для будинків <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section reviews">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Відгуки</p>
+      <h2>Що пишуть клієнти</h2>
+      <p class="section-lead">Про терміни, документи й поведінку майстрів — кілька відгуків з нашого сайту.</p>
+    </div>
+    <div class="rev-grid">
+      <blockquote class="rev">
+        <p>«Замовила заміну лічильників, був майстер Данило, приїхав вчасно, швидко зробив свою роботу, видав документи. Хлопці молодці, працюють на результат.»</p>
+        <footer><b>Олена</b><span>заміна лічильників води</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>«Старі лічильники не пройшли перевірку, фахівець проконсультував… і замінили лічильники в цей же день. Оперативність — ваше друге ім'я.»</p>
+        <footer><b>Тарас</b><span>заміна лічильників води</span></footer>
+      </blockquote>
+      <blockquote class="rev">
+        <p>«У день установки майстер приїхав вчасно, роззувся, заніс всі інструменти і виконав роботу. Вперше бачу таких адекватних, тверезих і культурних майстрів.»</p>
+        <footer><b>Владислава</b><span>встановлення лічильників води</span></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="container faq-inner">
+    <div class="section-head">
+      <p class="kicker">Питання</p>
+      <h2>Часті запитання</h2>
+      <p class="section-lead">Не знайшли відповіді? Напишіть у <a href="https://t.me/energo_climat" target="_blank" rel="noopener">Telegram</a> або подзвоніть — підкажемо, що потрібно саме у вашому випадку.</p>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>Як часто потрібно повіряти лічильники води?<svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Раз на 4 роки — і для холодної, і для гарячої води. Прострочений прилад знімають з обліку, і нарахування йдуть за нормами, а це дорожче. Повірку робимо на місці без зняття лічильника за 20–30 хвилин, свідоцтво — протягом 10–14 днів.</p>
+      </details>
+      <details>
+        <summary>Чи треба мені самому їхати в «Київводоканал» або «Київтеплоенерго»?<svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Ні. Ми видаємо повний пакет документів і безкоштовно подаємо заявку на виклик інспектора для опломбування від вашого імені. Виняток — приватні будинки та юридичні особи.</p>
+      </details>
+      <details>
+        <summary>Чи можна замінити лічильник у день звернення?<svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Так, якщо надішлете фото місця майбутнього монтажу — встановлення часто можливе в той самий день.</p>
+      </details>
+      <details>
+        <summary>Що потрібно, щоб поставити лічильник тепла?<svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Копія техпаспорта на квартиру (якщо його немає — допоможемо зробити) і фото місця встановлення з позначенням вашої труби або доступ до нього. Проєкт готуємо за 1 добу, погодження в КП «Київтеплоенерго» — безкоштовно.</p>
+      </details>
+      <details>
+        <summary>Скільки коштує виїзд майстра?<svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Огляд місця монтажу лічильників води — 350 грн у Києві, від 500 грн в області. Виїзд на огляд і укладення договору щодо лічильника тепла — 300 грн. Остаточну суму майстер називає після огляду, і тільки після вашого погодження починає роботу.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTS ============ -->
+<section class="section contacts" id="contacts">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Контакти</p>
+      <h2>Київ і Київська область</h2>
+    </div>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <a class="contact-phone" href="tel:+380990411444">+38 (099) 041 14 44</a>
+        <a class="contact-phone-2" href="tel:+380672817500">+38 (067) 281 75 00</a>
+        <div class="contact-msgs">
+          <a class="btn btn-tg" href="https://t.me/energo_climat" target="_blank" rel="noopener"><svg class="ic"><use href="#i-tg"/></svg>Telegram</a>
+          <a class="btn btn-viber" href="viber://chat?number=%2B380962433748"><svg class="ic"><use href="#i-viber"/></svg>Viber</a>
+        </div>
+        <ul class="contact-list">
+          <li><svg class="ic"><use href="#i-pin"/></svg><span><b>Офіс</b>03124, м. Київ, бульвар Вацлава Гавела, 6-з</span></li>
+          <li><svg class="ic"><use href="#i-clock"/></svg><span><b>Графік</b>Заявки телефоном: Пн–Пт 9:00–17:00<br>Telegram і Viber: цілодобово<br>Майстри: Пн–Сб 8:00–18:00</span></li>
+          <li><svg class="ic"><use href="#i-mail"/></svg><span><b>Email</b><a href="mailto:info@energo-climat.com">info@energo-climat.com</a></span></li>
+        </ul>
+      </div>
+      <div class="map-card">
+        <div class="map-canvas">
+        <svg class="map-art" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <pattern id="mapgrid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="currentColor" stroke-opacity=".08"/></pattern>
+          </defs>
+          <rect width="600" height="420" fill="url(#mapgrid)"/>
+          <path class="map-river" d="M420 -10 C 400 60, 450 110, 430 170 S 360 260, 390 330 S 460 400, 440 440" fill="none" stroke-width="34" stroke-linecap="round"/>
+          <g class="map-roads" fill="none" stroke-width="6" stroke-linecap="round">
+            <path d="M-10 250 C 120 240, 220 210, 300 196 S 460 180, 610 150"/>
+            <path d="M110 -10 C 150 90, 190 150, 250 205 S 330 330, 320 430"/>
+            <path d="M-10 120 C 90 140, 170 160, 250 205"/>
+            <path d="M40 430 C 110 350, 170 300, 250 262"/>
+          </g>
+          <circle cx="250" cy="205" r="90" class="map-radius"/>
+        </svg>
+        <div class="map-pin"><svg class="ic"><use href="#i-pin"/></svg></div>
+        </div>
+        <div class="map-overlay">
+          <p><b>бульвар Вацлава Гавела, 6-з</b>Виїжджаємо по всьому Києву та в область</p>
+          <a class="btn btn-primary btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+%D0%92%D0%B0%D1%86%D0%BB%D0%B0%D0%B2%D0%B0+%D0%93%D0%B0%D0%B2%D0%B5%D0%BB%D0%B0+6%D0%B7+%D0%9A%D0%B8%D1%97%D0%B2" target="_blank" rel="noopener">Відкрити в Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-row">
+    <div class="footer-brand">
+      <img src="img/logo-light.png" alt="Техенергооблік" width="520" height="253" loading="lazy">
+      <p>ТОВ «ТЕХЕНЕРГООБЛІК» · лічильники, опалення, водопостачання · з 2011 року</p>
+    </div>
+    <nav class="footer-nav" aria-label="Нижнє меню">
+      <a href="https://energo-climat.com/uk/prais/" target="_blank" rel="noopener">Прайс</a>
+      <a href="https://energo-climat.com/uk/akczii/" target="_blank" rel="noopener">Акції та знижки</a>
+      <a href="https://energo-climat.com/uk/dokumenti/" target="_blank" rel="noopener">Документи</a>
+      <a href="https://energo-climat.com/uk/vakansiyi/" target="_blank" rel="noopener">Вакансії</a>
+      <a href="https://energo-climat.com/uk/blog-2/" target="_blank" rel="noopener">Блог</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2011–<span id="year">2026</span> ТОВ «ТЕХЕНЕРГООБЛІК»</span>
+    <span class="concept-note">Концепт редизайну головної сторінки · vasylian.com</span>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE BAR ============ -->
+<div class="callbar" role="navigation" aria-label="Швидкий зв'язок">
+  <a class="callbar-call" href="tel:+380990411444"><svg class="ic"><use href="#i-phone"/></svg>Подзвонити</a>
+  <a class="callbar-ic tg" href="https://t.me/energo_climat" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg class="ic"><use href="#i-tg"/></svg></a>
+  <a class="callbar-ic vb" href="viber://chat?number=%2B380962433748" aria-label="Написати у Viber"><svg class="ic"><use href="#i-viber"/></svg></a>
+  <a class="callbar-ic calc" href="#calc" aria-label="Розрахувати вартість"><span>₴</span></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
