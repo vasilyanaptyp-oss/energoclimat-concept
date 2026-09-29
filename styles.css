@@ -68,6 +68,10 @@ p{margin:0}
 .btn-viber{background:#fff;border-color:var(--line-2);color:var(--ink)}
 .btn-viber .ic{color:var(--viber);width:22px;height:22px}
 .btn-tg:hover,.btn-viber:hover{border-color:var(--ink-2)}
+.btn-wa{background:#fff;border-color:var(--line-2);color:var(--ink)}
+.btn-wa .ic{color:#25d366;width:22px;height:22px}
+.btn-wa:hover{border-color:var(--ink-2)}
+.contact-msgs .btn-wa,.nav-msgs .btn-wa{grid-column:1 / -1}
 .btn-light{background:#fff;color:var(--ink)}
 .btn-light:hover{background:var(--teal-50)}
 .btn-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15}
@@ -81,7 +85,7 @@ p{margin:0}
   border-bottom:1px solid var(--line);
 }
 .header-row{display:flex;align-items:center;gap:16px;height:var(--header-h)}
-.brand img{height:40px;width:auto}
+.brand img{height:46px;width:auto}
 .main-nav{display:none}
 .header-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
 .header-phone,.header-cta,.lang-switch{display:none}
@@ -165,8 +169,7 @@ p{margin:0}
   width:30px;height:42px;overflow:hidden;border-radius:6px;background:linear-gradient(180deg,#0e1217,#262c35 50%,#0e1217);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);position:relative;
 }
-.odo-cell.is-lead .odo-strip{color:#4d5763}
-.odo-cell.is-last{background:linear-gradient(180deg,#5a1a0c,#a33a1c 50%,#5a1a0c)}
+.odo-cell.is-lead .odo-strip{color:transparent}
 .odo-strip{display:flex;flex-direction:column;transition:transform .9s cubic-bezier(.2,.8,.2,1);font-family:var(--mono);font-weight:700;font-size:26px;color:#fff}
 .odo-strip span{height:42px;display:grid;place-items:center}
 .odo-unit{font-family:var(--mono);font-size:15px;font-weight:600;color:#9fb0b5;padding-bottom:4px}
@@ -288,6 +291,11 @@ p{margin:0}
 .model i::after{content:" грн";font-size:12px;font-weight:500;color:var(--muted)}
 .model:has(input:checked){border-color:var(--teal);background:var(--teal-50);box-shadow:0 0 0 3px rgba(2,151,139,.12)}
 
+.calc-mini{position:sticky;bottom:calc(80px + env(safe-area-inset-bottom));z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:52px;padding:0 16px;border:0;border-radius:14px;background:var(--ink);color:#fff;font-size:15px;box-shadow:var(--shadow-lg);cursor:pointer}
+.calc-mini b{font-family:var(--mono);font-size:18px}
+.calc-mini > span{white-space:nowrap}
+.calc-mini-go{color:#35d6c6;font-weight:600}
+
 .calc-result{display:grid;gap:12px;align-content:start}
 .res-card{background:var(--ink);color:#fff;border-radius:18px;padding:20px;position:relative;overflow:hidden}
 .res-card::after{
@@ -315,12 +323,15 @@ p{margin:0}
   width:100%;min-height:48px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line-2);background:#fff;font-size:16px;
   transition:border-color .2s,box-shadow .2s;
 }
-.field textarea{min-height:108px;resize:vertical;line-height:1.45;font-size:15px}
+.field textarea{min-height:108px;resize:vertical;line-height:1.45}
 .field input:focus,.field textarea:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(2,151,139,.15)}
 .field input.is-invalid{border-color:var(--hot);box-shadow:0 0 0 3px rgba(214,85,45,.14)}
 .req-actions{display:grid;gap:8px}
 .req-msgs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .req-hint{font-size:12.5px;color:var(--muted)}
+.req-done{padding:14px 16px;border-radius:12px;background:#e6f6f4;border:1px solid #bfe6e1;color:var(--ink-2);font-size:14px;line-height:1.45}
+.req-done[hidden]{display:none}
+.req-done small{display:block;margin-top:6px;color:var(--muted);font-size:12.5px}
 
 /* ---------- Process ---------- */
 .process{background:var(--bg)}
@@ -457,8 +468,12 @@ p{margin:0}
 /* extra bottom padding on phones so the sticky call bar sits over the dark footer, not over a light strip */
 .site-footer{background:#161a20;color:#aeb8bc;padding:36px 0 calc(20px + 72px + env(safe-area-inset-bottom))}
 .footer-row{display:grid;gap:22px}
-.footer-brand img{height:44px;width:auto}
+.footer-brand img{height:56px;width:auto}
 .footer-brand p{margin-top:12px;font-size:14px;max-width:420px}
+.footer-brand .footer-contacts{margin-top:8px;color:#dfe7e9;max-width:none}
+.footer-contacts a{color:inherit;text-decoration:none}
+.footer-contacts a,.footer-contacts .nw{white-space:nowrap}
+.footer-contacts a:hover{color:#35d6c6}
 .footer-nav{display:flex;flex-wrap:wrap;gap:10px 18px}
 .footer-nav a{color:#dfe7e9;text-decoration:none;font-weight:500;font-size:14.5px}
 .footer-nav a:hover{color:#35d6c6}
@@ -482,7 +497,7 @@ p{margin:0}
 .callbar-ic .ic{width:24px;height:24px}
 .callbar-ic.tg{color:var(--tg)}
 .callbar-ic.vb{color:var(--viber)}
-.callbar-ic.calc{color:var(--ink);font-family:var(--mono);font-size:20px}
+.callbar-ic.calc{color:var(--ink);width:auto;padding:0 12px;font-family:var(--font);font-size:15px;white-space:nowrap}
 
 /* ---------- Toast ---------- */
 .toast{
@@ -529,7 +544,7 @@ p{margin:0}
   :root{--gutter:32px;--header-h:76px}
   body{padding-bottom:0}
   .callbar,.only-mobile{display:none !important}
-  .brand img{height:54px}
+  .brand img{height:64px}
   .main-nav{display:flex;gap:4px;margin-left:12px}
   .main-nav > a{padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2);white-space:nowrap}
   .header-phone{white-space:nowrap}
@@ -590,7 +605,8 @@ p{margin:0}
 
   .works-scroller{overflow:visible;padding:0 var(--gutter)}
   .works-track{max-width:calc(1200px - 2 * var(--gutter))}
-  .works-track{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;gap:14px}
+  .works-track{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;gap:14px}
+  .works .work{aspect-ratio:1/1}
 
   .stats{border-radius:18px}
   .stat{padding:24px 22px}
@@ -624,7 +640,7 @@ p{margin:0}
 
 /* small laptops / landscape tablets: keep the header on one line and give the hero photo room */
 @media (min-width:960px) and (max-width:1199px){
-  .brand img{height:48px}
+  .brand img{height:56px}
   .main-nav{margin-left:4px;gap:0}
   .main-nav > a{padding:8px 9px;font-size:14.5px}
   .main-nav > a[href="#faq"]{display:none}
@@ -644,4 +660,24 @@ p{margin:0}
   .svc-calc{padding:0 10px;font-size:13.5px}
   .svc-links{gap:6px}
   .svc-more{width:40px;height:40px}
+}
+
+/* calculator mini price bar is for phones/tablets only */
+@media (min-width:960px){.calc-mini{display:none}}
+
+/* phones & tablets: price card sits under the hero photo, overlapping it by ~32px only */
+@media (max-width:959px){
+  .hero-visual{padding-bottom:0}
+  .meter-card{position:relative;left:auto;right:auto;bottom:auto;width:auto;max-width:420px;margin:-32px 12px 0}
+}
+
+/* very narrow phones (≤359px): keep call + Telegram + Viber + «₴ Ціна» on one row */
+@media (max-width:359px){
+  .callbar{gap:6px;padding-left:8px;padding-right:8px}
+  .callbar-ic{width:44px}
+  .callbar-ic.calc{padding:0 8px;font-size:14px}
+  .callbar-call{gap:6px;font-size:15px}
+  .callbar-call .ic{width:20px;height:20px}
+  .calc-mini{padding:0 12px;gap:8px;font-size:13.5px}
+  .calc-mini b{font-size:15.5px}
 }

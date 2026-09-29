@@ -3,8 +3,6 @@
   'use strict';
   document.documentElement.classList.add('js');
 
-  var TG_URL = 'https://t.me/energo_climat';
-  var VIBER_URL = 'viber://chat?number=%2B380962433748';
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function $(s, root) { return (root || document).querySelector(s); }
@@ -38,7 +36,7 @@
     { v: 600, t: 'Повірка 1 лічильника води без зняття' },
     { v: 700, t: 'Заміна 1 лічильника води з постановкою на облік' },
     { v: 6500, t: 'Лічильник тепла Gross під ключ, з проєктом' },
-    { v: 1800, t: 'Монтаж бойлера до готових підводів', from: true }
+    { v: 2500, t: 'Монтаж бойлера до готових підводів', from: true }
   ];
   var DIGITS = 5;
   var odo = $('#odo'), odoCap = $('#odoCaption'), odoDots = $('#odoDots');
@@ -109,15 +107,15 @@
   var BRAND = { gross: 'Metron / Gross, Україна', picoflux: 'Picoflux, Польща', zenner: 'Zenner, Німеччина' };
   var MODEL = { gross: 'Gross DN15/20, механічний', grossm: 'Gross DN15/20 з M-Bus', uhm: 'Metron UHM DN15 з M-Bus, ультразвуковий', apator: 'Apator DN15/20', t230: 'Ultraheat T-230' };
   var INCL = {
-    replace: ['Демонтаж старих і монтаж нових лічильників', 'Постановка на облік і пакет документів', 'Заявка на опломбування — безкоштовно', 'Гарантія на роботу 24 місяці'],
-    'new': ['Монтаж вузла обліку', 'Постановка на облік і пакет документів', 'Заявка на опломбування — безкоштовно', 'Гарантія на роботу 24 місяці'],
+    replace: ['Демонтаж старих і монтаж нових лічильників', 'Постановка на облік і пакет документів', 'Заявка на опломбування — безкоштовно (для квартир)', 'Гарантія на роботу 24 місяці'],
+    'new': ['Монтаж вузла обліку', 'Постановка на облік і пакет документів', 'Заявка на опломбування — безкоштовно (для квартир)', 'Гарантія на роботу 24 місяці'],
     verify: ['Повірка на місці станцією АС-П, 20–30 хв', 'Без відключення води й без зняття пломб', 'Акт виконаних робіт і свідоцтво про повірку', 'Допомога з постановкою на облік'],
     heat: ['Лічильник і монтажний комплект (крани, фільтр, переходи)', 'Проєкт за 1 добу й документи для обліку', 'Монтаж і пусконалагодження', 'Погодження в КП «Київтеплоенерго» — безкоштовно']
   };
   var NOTE = {
     water: 'Орієнтовно за прайсом. Огляд місця монтажу — 350 грн у Києві, від 500 грн в області; остаточну суму майстер називає після огляду.',
     verify: 'Ціна для лічильників DN15–20. Свідоцтво — протягом 10–14 днів. Для ОСББ при замовленні понад 50 шт. — 450 грн/шт.',
-    heat: 'Ціна «під ключ» для стандартного монтажу. Виїзд на огляд і укладення договору — 300 грн.'
+    heat: 'Ціна «під ключ» для стандартного монтажу. Виїзд на огляд і укладення договору — 300 грн, оплачується окремо.'
   };
 
   var calcEl = $('.calc');
@@ -142,13 +140,22 @@
     var q4 = $('.qty-4');
     q4.hidden = t !== 'verify';
     if (t !== 'verify' && state.qty === '4') { setVal('qty', '2'); state.qty = '2'; }
+    var ownLbl = $('#optOwner input[value="own"] + span');
+    if (ownLbl) ownLbl.textContent = t === 'new' ? 'Так, лічильники й матеріали мої' : 'Так, є свої';
 
     if (isWater) {
       price = state.owner === 'own' ? P[t].own[state.qty] : P[t].ours[state.brand][state.qty];
       title = (t === 'replace' ? 'Заміна ' : 'Нове встановлення ') + qtyWord(state.qty) + ' води';
       // detail goes into the client's message (client voice), shown is the result card (company voice)
-      detail = state.owner === 'own' ? 'лічильники вже є' : 'лічильники від вас — ' + BRAND[state.brand];
-      shown = state.owner === 'own' ? 'ваші лічильники' : 'лічильники ' + BRAND[state.brand];
+      var one = state.qty === '1';
+      if (state.owner === 'own') {
+        // "new" price on the source page is for the customer's meters AND materials (valves, filters)
+        detail = t === 'new' ? (one ? 'лічильник, крани й фільтри вже є' : 'лічильники, крани й фільтри вже є') : (one ? 'лічильник уже є' : 'лічильники вже є');
+        shown = t === 'new' ? (one ? 'ваш лічильник і матеріали' : 'ваші лічильники й матеріали') : (one ? 'ваш лічильник' : 'ваші лічильники');
+      } else {
+        detail = (one ? 'лічильник від вас — ' : 'лічильники від вас — ') + BRAND[state.brand];
+        shown = (one ? 'лічильник ' : 'лічильники ') + BRAND[state.brand];
+      }
     } else if (t === 'verify') {
       price = P.verify[state.qty];
       title = 'Повірка ' + qtyWord(state.qty) + ' води без зняття';
@@ -162,10 +169,13 @@
     }
 
     $('#resPrice').textContent = fmt(price);
+    var mp = $('#miniPrice'); if (mp) mp.textContent = fmt(price);
     $('#resTitle').textContent = title + ' · ' + shown;
     var list = $('#resList');
     list.innerHTML = '';
-    INCL[t].forEach(function (txt) {
+    var incl = INCL[t].slice();
+    if (t === 'replace' && state.qty === '1') incl[0] = 'Демонтаж старого й монтаж нового лічильника';
+    incl.forEach(function (txt) {
       var li = document.createElement('li');
       li.innerHTML = '<svg class="ic"><use href="#i-check"/></svg>';
       li.appendChild(document.createTextNode(txt));
@@ -181,7 +191,7 @@
   function buildMessage() {
     var f = $('#reqForm');
     var name = f.name.value.trim(), phone = f.phone.value.trim(), addr = f.addr.value.trim();
-    var lines = ['Добрий день! Хочу замовити: ' + state.summary + '.', 'Орієнтовно за прайсом: ' + fmt(state.price) + ' грн.'];
+    var lines = ['Добрий день! Потрібно: ' + state.summary + '.', 'Орієнтовно за прайсом: ' + fmt(state.price) + ' грн.'];
     if (name) lines.push("Ім'я: " + name);
     if (phone) lines.push('Телефон: ' + phone);
     if (addr) lines.push('Адреса / район: ' + addr);
@@ -189,7 +199,11 @@
   }
 
   if (calcEl) {
-    $$('.calc input[type="radio"]').forEach(function (r) { r.addEventListener('change', computeCalc); });
+    $$('.calc input[type="radio"]').forEach(function (r) { r.addEventListener('change', function () { userEditedMsg = false; $('#reqDone').hidden = true; computeCalc(); }); });
+    var calcMini = $('#calcMini');
+    if (calcMini) calcMini.addEventListener('click', function () {
+      $('.res-card').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    });
     msgEl.addEventListener('input', function () { userEditedMsg = true; });
     ['name', 'phone', 'addr'].forEach(function (n) {
       $('#reqForm')[n].addEventListener('input', function () {
@@ -205,8 +219,10 @@
     b.addEventListener('click', function () {
       setVal('type', b.getAttribute('data-calc'));
       userEditedMsg = false;
+      $('#reqDone').hidden = true;
       computeCalc();
-      var target = $('#calc');
+      // phones: land on the options themselves, so steps 2–3 sit above the sticky price bar
+      var target = window.innerWidth < 960 ? $('#calc .calc') : $('#calc');
       if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     });
   });
@@ -228,15 +244,13 @@
       return !!ok;
     } catch (e) { return false; }
   }
+  // Real links: the browser follows href on the actual tap (no window.open after async work,
+  // which iOS Safari and in-app browsers block). We only copy the text on the way out.
   $$('[data-send]').forEach(function (b) {
     b.addEventListener('click', function () {
       var kind = b.getAttribute('data-send');
-      var text = msgEl.value;
-      copyText(text).then(function (ok) {
-        toast(ok ? 'Текст заявки скопійовано — вставте його в чат ' + (kind === 'tg' ? 'Telegram' : 'Viber') + '.' : 'Відкриваємо чат — опишіть, що потрібно зробити.');
-        var url = kind === 'tg' ? TG_URL : VIBER_URL;
-        setTimeout(function () { window.open(url, kind === 'tg' ? '_blank' : '_self'); }, 350);
-      });
+      copyText(msgEl.value);
+      toast('Текст заявки скопійовано — вставте його в чат ' + (kind === 'tg' ? 'Telegram' : 'Viber') + '.');
     });
   });
 
@@ -247,16 +261,18 @@
       e.preventDefault();
       var phone = form.phone.value.replace(/\D/g, '');
       if (phone.length < 9) {
+        $('#reqDone').hidden = true;
         form.phone.classList.add('is-invalid');
         form.phone.focus();
         toast('Вкажіть номер телефону — майстер передзвонить.');
         return;
       }
-      toast('Дякуємо! Концепт: у робочій версії заявка одразу прийде менеджеру в Telegram.');
-      form.reset();
-      userEditedMsg = false;
-      setVal('type', state.type); setVal('qty', state.qty); setVal('owner', state.owner); setVal('brand', state.brand); setVal('model', state.model);
-      computeCalc();
+      $('#reqDoneText').textContent = state.summary.charAt(0).toUpperCase() + state.summary.slice(1) + ', орієнтовно ' + fmt(state.price) + ' грн.';
+      if (toastEl) toastEl.classList.remove('is-on'); // drop a leftover "enter phone" toast
+      var d = $('#reqDone');
+      d.hidden = false;
+      // centre it: 'nearest' parks the bottom lines under the sticky call bar on phones
+      d.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   }
 
